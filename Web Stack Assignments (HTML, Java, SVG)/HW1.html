@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #navbar {
+          position: fixed;
+          top: 0;
+          left: 0%;
+          right: 0%;
+          width: 100%;
+          background-color: #D4AF37;
+          padding: 20px 0;
+          text-align: center;
+          align-items: center;
+          display: flex;
+          justify-content: center;
+        }
+        #navbar a {
+          margin: 0 15px;
+          color: whitesmoke;
+          text-decoration: none;
+          font-size: large;
+        }
+        #navbar img {
+          position: absolute;
+          left: 20px;
+          height: 60px;
+        }
+        section {
+            margin-top: 35px;
+            padding: 10px;
+            border: 1px solid #dee2e6;
+        }
+    </style>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://d3js.org/d3-scale.v2.min.js"></script>
+  
+</head>
+<body>
+    <div id="navbar">
+      <img src="GTVertical_RGB.png" alt="Logo">
+      <a href="#syllabus">Syllabus</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#readings">Readings</a>
+      <a href="#assignments">Assignments</a>
+      <a href="#grade">Grades</a>
+    </div>
+    <section id="syllabus">
+        <h2>Syllabus</h2>
+            <h3>Course Syllabus</h3>
+                <b>CS7450 - Information Visualization</b>
+                <p>Instructor: <a href="https://va.gatech.edu/endert/">Alex Endert</a></p>
+                <p>Spring 2024</p>
+                <p><b>Location:</b> Tuesday, Thursday 2:00 - 3:15pm, Instructional Center 109</p>
+                <p></p>
+                <b>TA Office Hour Schedule:</b>
+                <p></p>
+                <table border="1">
+                    <tr>
+                        <td>Kaustubh Odak</td>
+                        <td>Mon 3:00 pm to 4:00 pm</td>
+                        <td><a href="https://gatech.zoom.us/j/93974839074">https://gatech.zoom.us/j/93974839074</a></td>
+                    </tr>
+                    <tr>
+                        <td>Yu Fu</td>
+                        <td>Wed 1:30 pm to 2:30 pm</td>
+                        <td><a href="https://gatech.zoom.us/j/95765429433Links">https://gatech.zoom.us/j/95765429433</a></td>
+                    </tr>
+                </table>
+            <h3>Overview and Learning Objectives</h3>
+                <p>For one day per week (Tuesdays), we will focus on visualization research. 
+                We will read research papers on some topic/theme, students will make presentations about the papers, 
+                and we will discuss. One goal is to try to develop ideas for new research projects. 
+                On the other day per week (Thursdays), we will focus on visualization system/application development. 
+                Students will learn how to develop interactive visualization tools using languages and libraries like 
+                Vega-Lite, D3, and JavaScript.</p>
+            <h3>Textbooks</h3>
+                <p>There are no required textbook for this course. However, there are a collection of resources 
+                that you should find helpful for assignments throughout the course. There are also readings 
+                that we will cover throughout the course which are all available while on the GT VPN (or on 
+                campus).</p>
+            <h3>Course Format</h3>
+                <p>The course will consist mainly of two parts: reading and discussing research papers about information 
+                visualization, and learning how to program web-based visualizations (predominantly using d3.js). </p>
+            <h3>Timelines</h3>
+                <p>All assignments are due at 11:59pm on Friday. Late work will receive a 10% per day penalty. After 5 days, a 
+                0% will be given and no submission will be accepted. Too much other work, gone for the weekend, ran out of 
+                paper etc. are not emergencies. Advance notification to the instructor and TAs is expected in all but the most 
+                severe emergency situations.</p>
+                <p>However, it is understandable that life events and other reasons come up that may require you to miss a 
+                deadline. As such, each student is given 2 “late days” that you can use throughout the semester. If you want 
+                to use any of your late days, add a note (or comment) to the Canvas submission at the time you submit. 
+                You cannot apply late days to assignments at the end of the semester or days after you submit your assignment. 
+                These are intended to be used in a situation where life events happen, not to retroactively apply them at the 
+                end of the semester. </p>
+            <h3>Canvas</h3>
+                <p>Canvas will be used for electronic submissions for most of the assignments, and for recording grades. 
+                For contacting the instructor or the TAs, please use email or private Canvas messages.</p>
+            <h3>Grading & Assignments</h3>
+                <p>Final course grades may be curved (but not always). Grades of individual assignments will not be curved. If a curve is given, 
+                it will only be curved up (not down). Any regrade requests should be emailed directly to the instructor and 
+                need to describe the detailed concern for the regrade. Grading distributions for this course are:
+                <ul>
+                    <li>HW Assignments 40%
+                        <ul>
+                            <li>HW1: Web Stack 5%</li>
+                            <li>HW2: D3 Charts 10%</li>
+                            <li>HW3: Interaction 10%</li>
+                            <li>HW4: Putting it all together 15%</li>
+                        </ul>
+                    </li>
+                    <li>Reading Presentation 15%</li>
+                    <li>Reading Reflection 15%</li>
+                    <li>Research Proposal 20%</li>
+                    <li>Class Engagement 10%</li>
+                  </ul>
+    </section>
+    <section id="schedule">
+        <h2>Schedule</h2>
+        <table id="myTable">
+            <tr>
+              <th>Date</th>
+              <th>Topic</th>
+              <th>Assignments Due<br>(Fridays at 11:59pm)</th>
+            </tr>
+            <tr>
+              <td>1/9</td>
+              <td>Course Intro</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>1/11</td>
+              <td>Assignments, Presentations, Programming Expectations</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>1/16</td>
+              <td>COVID Vis</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>1/18</td>
+              <td>Web Development Fundamentals (The Web, HTML, CSS, SVG)</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>1/23</td>
+              <td>Storytelling Tools and Techniques</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>1/25</td>
+              <td>Web Development Fundamentals - II (JS, DOM, TS and tooling)</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>1/30</td>
+              <td>Trust</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>2/1</td>
+              <td>D3: Data Loading and Binding, JS frameworks and integration</td>
+              <td>HW1</td>
+            </tr>
+            <tr>
+              <td>2/6</td>
+              <td>Visual Perception</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>2/8</td>
+              <td>D3: Selection</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>2/13</td>
+              <td>User Interaction</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>2/15</td>
+              <td>D3: Chart Types, Scales, (Vega-lite?)</td>
+              <td></td>
+            </tr>
+            <tr>
+                <td>2/20</td>	
+                <td>Analytic Provenance</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>2/22</td>
+                <td>D3: Interaction 1</td>
+                <td>HW2</td>
+            </tr>	
+            <tr>
+                <td>2/27</td>
+                <td>Cognitive Bias</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>2/29</td>
+                <td>D3: Interaction 2</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>3/5</td>
+                <td>Post-WIMP</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>3/7</td>
+                <td>D3: Interaction 3</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>3/12</td>
+                <td>Auto-Insight</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>3/14</td>
+                <td>D3: Layouts</td>
+                <td>HW3</td>
+              </tr>
+              <tr>
+                <td>3/19</td>
+                <td colspan="2">Spring break -- no class</td>
+              </tr>
+              <tr>
+                <td>3/21</td>
+                <td colspan="2">Spring break -- no class</td>
+              </tr>
+              <tr>
+                <td>3/26</td>
+                <td>Natural Language</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>3/29</td>
+                <td>D3: Scrollytelling</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>4/2</td>
+                <td>Creating Visualizations without Programming</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>4/4</td>
+                <td>D3: Networks</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>4/9</td>
+                <td>Immersive Techniques</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>4/11</td>
+                <td>D3: Geo?</td>
+                <td>HW4</td>
+              </tr>
+              <tr>
+                <td>4/16</td>
+                <td>XAI</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>4/18</td>
+                <td>D3: Advanced Topics?</td>
+                <td>Research Proposal</td>
+              </tr>
+              <tr>
+                <td>4/23</td>
+                <td>Review and Reflection</td>
+                <td></td>
+              </tr>
+          </table>
+          
+    </section>
+    <section id="readings">
+        <h2>Readings</h2>
+        <div>
+          <label for="topics">Select a Topic: </label>
+          <select id="topics"></select>
+        </div>
+        <ul></ul>
+    </section>
+    <section id="assignments">
+        <h2>Assignments</h2>
+        <h3>Reading Presentation</h3>
+        <p>This is a group assignment where your group will present and lead discussion about the reading for a
+           specific day. You will need to do one of these during the semester. Please use the link below to sign
+            up for the reading for that day.</p>
+        <p><b>Overall length:</b> Aim for roughly 20 minutes of total "content" (not counting discussion that will happen
+           after). The discussion (including that coordinated by the Q&A coordinator) should be another 20-30 
+           minute based on class engagement. Plan accordingly to make sure you have a good balance among the 4 
+           roles/parts below.</p>
+        <p><b>Roles:</b> Each group member will have specific roles to ensure that everyone contributes and participates. 
+          These roles are to guide who presents what during the presentation, but all group members should read the 
+          paper and contribute to the overall presentation for that day. All group members need to be present the 
+          day they present.</p>
+        <ul>
+          <li>Motivation Presenter: This person will present a brief overview of the paper.
+            <ul>
+              <li>Intro
+                <ul>
+                  <li>What is the motivation for the paper?</li>
+                  <li>What is the problem it is trying to solve?</li>
+                  <li>What is the goal?</li>
+                  <li>What are the contributions?</li>
+                </ul>
+              </li>
+            </ul>
+            <ul>
+              <li>What does the paper do?
+                <ul>
+                  <li>e.g., if it was a study, what did it study? If it is a visualization tool, what does it do?</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>Example/Demo/Video/Result Presenter: This person presents an example or highlights the results of the paper
+            <ul>
+              <li>For a study, this could include a highlight of the results, example of findings, summaries of findings, etc.</li>
+              <li>When videos are available, subsets of the videos can be used.</li>
+              <li>When demos are available, showcasing the demo is good here.</li>
+            </ul>
+          </li>
+          <li>Reflection/Future Work Presenter: This person presents an overview of the discussion/future work of the presented work (and potentially how it ties in to other readings this semester)
+            <ul>
+              <li>What does the paper say in terms of broader discussion or future work?</li>
+              <li>Are there higher-level topics the paper reflects on?</li>
+            </ul>
+          </li>
+          <li>Q&A Coordinator: This person will present a set of discussion questions for the class and generally lead discussion.
+            <ul>
+              <li>Questions could be about parts of the paper that seem "odd" or "limitations", potential applications to other areas/domains, impact, missing opportunities, etc.</li>
+              <li>Try not to make these generic, like "what did you all think about the study?", but rather something more specific to the reading, such as "condition 2 had participants use only the second version of the visualization, do you all think that created a confound?</li>
+            </ul>
+          </li>
+        </ul>
+        <p><b>What to submit:</b> The 4 roles above should coordinate and create a single presentation slide deck of some sort. Feel free to use any online slide software (Google, PowerPoint, etc.) to make you slides. When you are done, download a .pptx of your presentation to this assignment. 
+          Each team member must submit the file. </p>
+        <h3>Reading Reflection</h3>
+        <p>This individual assignment will have you think and reflect critically about one of the readings this semester and produce a reading reflection document.</p>
+        <p><b>This individual assignment will have you think and reflect critically about one of the readings this semester and produce a reading 
+          reflection document.</b> This individual assignment will have you think and reflect critically about one of the readings this semester 
+          and produce a reading reflection document.</p>
+        <b>Reflection document requirements:</b>
+          <ul>
+          <li>2-3 pages. Single spaced, single column, reasonable font (~12pt)</li>
+          <li>Don't just repeat the paper. Yes, most introduction sections of papers do a pretty good job giving a summary (or at least, they should!), but this assignment 
+            should be more about a reflection on (and related to) the reading for that day. </li>
+          <li>Consider the pattern of summary -> interpret -> reflect for the key points of the paper. That means that you should identify one or more key points made in the paper, 
+            interpret what these mean, and then reflect more broadly on them. </li>
+          <li>Useful to end your reflection document with open ended research questions, open discussion, etc.</li>
+        </ul>
+        <p><b>What to submit:</b> Submit a pdf of your reflection document</p>
+        <p><b>Due:</b> This assignment is due before the end of the semester, but you can select any reading throughout the semester and submit your reflection anytime before the end of the semester.</p>
+
+        <h3>HW1 - Web Stack</h3>
+        <p>For this assignment, you will practice using web stack basics and create a web page. For this, you have 2 
+          options for what this page should be about: this course or a personal page for yourself. 
+          You only have to pick and do one of these. Do not do both. The description for both is below.</p>
+        <p><b>Option 1: Single web page for this course</b></p>
+        <p>This course has a combination of material in multiple tabs on Canvas. Specifically, there is the 
+          course syllabus (with course information), the schedule table, the readings, and the assignments. 
+          Your task for this option is to create a single page, one-stop-shop for all this information.</p>
+        <p>To accomplish this, you need to:</p>
+        <ol type="1">
+          <li>Create a single web page with navigation to the sections for each component: syllabus, 
+            schedule table, readings, assignments (and description of the assignments)
+            <ol type="1">
+              <li>use HTML and CSS styles to change the fonts/look/feel of the site.</li>
+              <li>Clicking on the the navigation link at the top of the page should scroll to the correct position on the page.</li>
+              <li>(when descriptions of HW assignments are not yet available, just put "details TBD")</li>
+            </ol>
+          </li>
+          <li>Use Javascript to add elements dynamically based on data. Instead of repeating elements and content in static HTML pages, 
+            use JavaScript to manipulate the DOM to add papers dynamically based on a data file.
+            <ol>
+              <li>Instead of creating a list for all the papers in static HTML, we have a data file for the paper information in a CSV. 
+                Use this CSV and parse it using JavaScript to add the elements dynamically to the readings list as part of your webpage.</li>
+              <li><a href="https://gatech.instructure.com/courses/368178/files/47478597?wrap=1">Reading List(CSV)</a></li>
+            </ol>
+          </li>
+          <li>Use SVG to create some sort of visual element to show the grade distribution 
+            (instead of the simple table/list on the site now)</li>
+        </ol>
+        <p><b>Option 2: Create a personal webpage for yourself</b></p>
+        <p>For this option, your task is to create a webpage for yourself as a researcher. As I'm sure some of you have seen, 
+          there are lots of those around used by our colleagues. Some of you may even already have one! More on that below.</p>
+        <p>For this page, your goal is to create a single page that shares important information about yourself as a researcher. 
+          If you select this option, the requirements for this page include:</p>
+        <ol>
+          <li>Create a single, scrollable web-page with categories about you as a researcher. At a minimum, these should be:
+             About (with information about you), Publications (with a list of publications), Research Interests (with a 
+             list of interests that you have regarding the research you work on)</li>
+            <li>Use JavaScript to set up a way to populate your research papers from a data file. Similar to step 2 
+              in Option 1 above, use JavaScript to dynamically add publications to your publication list based on a datafile. 
+              The format of the file is up to you. </li>
+            <li>Add some form of SVG to the webpage to show some aspect of your information in visual form 
+              (or for design purposes)</li>
+        </ol>
+        <p><i>Note: If you already have a web page, you are welcome to use it. However, it must have the 
+          components described above (at a minimum). Also, site that are created from other tools (e.g., Wordpress) 
+          are not allowed for this assignment (and they likely will not fit the requirements).</i>
+        </p>
+        <p><b>What to submit:</b> You should put all the files for your webpage into a single folder, then create a .zip from the folder. Turn in this .zip. We will un-zip this, host the root folder, and test your submission. <i>Hint: be careful not to hard-code any paths relative to your machine. Use paths relative to the directory.</i></p>
+        <h3>HW2</h3>
+        <p><b>Details TBD</b></p>
+        <h3>HW3</h3>
+        <p><b>Details TBD</b></p>
+        <h3>HW4</h3>
+        <p><b>Details TBD</b></p>
+        <h3>Research Proposal</h3>
+        <p>This assignment will pull together content and skills you have developed over the course of the semester.
+           This includes the topics and content of the reading and discussion during class, as well as the ability to
+            articulate clear visualization research goals, questions, methods, etc. For this individual assignment, you 
+            will write a proposal for a potential new research project in the area of information visualization regarding 
+            one or more of the topics we covered this semester.</p>
+        <p>A good place to start for this is to think about which "type" of research (and thus proposal) you want to focus on.</p>
+        <ul>
+          <li><i>New visualization tool:</i> Did one of the areas we cover reveal a gap for a new vis? New interaction 
+            technique? Write up what this gap is and how your proposed work will cover this gap. Make sure you 
+            discuss your design goals (and perhaps a few sketches of the visualization) to help describe what 
+            you're proposing. </li>
+          <li><i>New study:</i> Is there a gap in what we know about visualization in a specific area/topic? 
+            Does it need a well-designed study to understand it better? Great! Write up what this gap is, 
+            what the research questions are, and what you methodology is for answering it.</li>
+          <li><i>Survey/Taxonomy:</i> Is there a topic we covered that is missing a survey or taxonomy of visualizations in that 
+            area? This sometimes happens with really new topics. Ok, write up a proposal about how you are going to go about this. 
+            What is your method for collecting the papers, how will you code/categorize them, etc? </li>
+          <li>There are other "types", but these above should get your started</li>
+        </ul>
+        <p>Since good research builds on prior work, it is recommended that you cite at least 5 references as part of your 
+          proposal to situate your work (and likely define whatever gap/need you outlined). </p>
+        <p>Ideally, the result of this is something that you could hand to a professor in a following semester to do 
+          a independent study, or maybe even a PhD in vis</p>
+        <p>In terms of evaluation, we will grade your proposal based on clarity, thoughtfulness, and how well it is 
+          articulated. Does the proposal explain how the proposed work builds on existing work (and how)? Does the 
+          methodology of what you propose match the need that you articulated? Is it scoped as something that would be
+           accomplished in 1-2 semesters? We are looking for proposals that are not too simple, but also not way to 
+           complex in scope.</p>
+        <p><b>What to turn in: </b>2-4 page whitepaper proposing your research. Submit the pdf.</p>
+    </section>
+    <section id="grade">
+      <h2>Grades</h2>
+      <script>
+        d3.csv('boxplot_data.csv').then(function(data) {
+          var groupedData = d3.nest()
+            .key(function(d) { return d.Name; })
+            .entries(data);
+    
+          var boxplotData = groupedData.map(function(group) {
+            var values = group.values.map(function(d) { return +d.Score; });
+            values.sort(d3.ascending);
+            var q1 = d3.quantile(values, 0.25);
+            var q3 = d3.quantile(values, 0.75);
+            var median = d3.median(values);
+            var iqr = q3 - q1;
+            var lowerWhisker = Math.max(values[0], q1 - 1.5 * iqr);
+            var upperWhisker = Math.min(values[values.length - 1], q3 + 1.5 * iqr);
+    
+            return {
+                name: group.key,
+                values: values,
+                q1: q1,
+                q3: q3,
+                median: median,
+                lowerWhisker: lowerWhisker,
+                upperWhisker: upperWhisker
+              };
+            });
+    
+            // Set up the dimensions for the chart
+            var margin = { top: 10, right: 30, bottom: 30, left: 40 },
+                width = 400 - margin.left - margin.right,
+                height = 300 - margin.top - margin.bottom;
+    
+            // Create an SVG element
+            var svg = d3.select('#grade')
+              .append('svg')
+                .attr('width', width + margin.left + margin.right)
+                .attr('height', height + margin.top + margin.bottom)
+              .append('g')
+                .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+    
+            // Create the boxplot
+            var xScale = d3.scaleBand()
+              .domain(boxplotData.map(d => d.name))
+              .range([0, width])
+              .padding(0.1);
+    
+            var yScale = d3.scaleLinear()
+              .domain([0, d3.max(boxplotData, d => d3.max(d.values))])
+              .range([height, 0]);
+    
+            svg.selectAll('.box')
+              .data(boxplotData)
+              .enter()
+              .append('rect')
+                .attr('class', 'box')
+                .attr('x', d => xScale(d.name))
+                .attr('y', d => yScale(d.q3))
+                .attr('width', xScale.bandwidth())
+                .attr('height', d => yScale(d.q1) - yScale(d.q3))
+                .attr('fill', 'lightsteelblue')
+                .attr('stroke', 'black');
+    
+            svg.selectAll('.median-line')
+              .data(boxplotData)
+              .enter()
+              .append('line')
+                .attr('class', 'median-line')
+                .attr('x1', d => xScale(d.name))
+                .attr('x2', d => xScale(d.name) + xScale.bandwidth())
+                .attr('y1', d => yScale(d.median))
+                .attr('y2', d => yScale(d.median))
+                .attr('stroke', 'black');
+    
+            svg.selectAll('.whisker')
+              .data(boxplotData)
+              .enter()
+              .append('line')
+                .attr('class', 'whisker')
+                .attr('x1', d => xScale(d.name) + xScale.bandwidth() / 2)
+                .attr('x2', d => xScale(d.name) + xScale.bandwidth() / 2)
+                .attr('y1', d => yScale(d.lowerWhisker))
+                .attr('y2', d => yScale(d.upperWhisker))
+                .attr('stroke', 'black');
+    
+            var xAxis = d3.axisBottom(xScale);
+            var yAxis = d3.axisLeft(yScale);
+    
+            svg.append('g')
+              .attr('transform', 'translate(0,' + height + ')')
+              .call(xAxis);
+    
+            svg.append('g')
+              .call(yAxis);
+    
+          }).catch(function(error) {
+            console.log('Error loading the data: ' + error);
+          });
+      </script>
+    </section>
+    <script src="javascript.js"></script>
+    
+</body>
+</html>

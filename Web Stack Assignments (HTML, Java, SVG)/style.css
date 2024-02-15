@@ -1,0 +1,53 @@
+body {
+    margin: 2;
+    background-color: #fdfdf8;
+}
+h2 {
+    color: #D4AF37;
+}
+h3 {
+    color: #977c23;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100vh;
+    padding-left: 1rem;
+}
+
+.html-bar-chart {
+    border: 1px solid black;
+    width: 50vw;
+    height: 45%;
+}
+
+.svg-bar-chart {
+    border: 1px solid black;
+    width: 50vw;
+    height: 45%;
+}
+
+#myTable {
+    border-collapse: collapse;
+}
+  
+#myTable th,
+#myTable td {
+    border: 1px solid black; 
+}
+
+#myTable th,
+#myTable td {
+    padding: 10px; 
+}
+
+#myTable th,
+#myTable td {
+  text-align: left; 
+}
+
+#myTable th {
+    background-color: #e9e6c9; 
+    font-weight: bold; 
+}
